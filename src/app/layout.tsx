@@ -1,19 +1,25 @@
-import './globals.css'
+import "./globals.css";
+import { Inter } from "@next/font/google";
+import CartTemplate from "./Cart";
 
-export default function RootLayout({
-   children,
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+
+export const metadata = {
+  title: "Medusa Store w/Next13",
+};
+
+export default async function RootLayout({
+  children,
 }: {
-   children: React.ReactNode
+  children: React.ReactNode;
 }) {
-   return (
-      <html lang="en">
-         {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-         <head />
+  return (
+    <html lang="en" className={`${inter.variable} font-sans`}>
+      <body>
+      <CartTemplate />
 
-         <body>{children}</body>
-      </html>
-   )
+        <main className="relative">{children}</main>
+      </body>
+    </html>
+  );
 }
