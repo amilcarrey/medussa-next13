@@ -1,5 +1,7 @@
 import { medusa } from "@lib/config";
-import { ProductTemplate } from "./Product";
+import ProductPreview from "@modules/product/elements/preview";
+
+
 
 export async function getProducts(regionId: string) {
   const { products } = await medusa.products.list({
@@ -21,9 +23,9 @@ export default async function Home() {
       <h1>Region (hand picked) : {regions[0].id}</h1>
       <h1>Products</h1>
       <div className="flex overflow-x-auto">
-      {products.map((product) => (
+      {products.map(({id,title,thumbnail}) => (
         <div>
-          <ProductTemplate product={product} />
+          <ProductPreview id={id} title={title} thumbnail={thumbnail} />
         </div>
       ))}
       </div>

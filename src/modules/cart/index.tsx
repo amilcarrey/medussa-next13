@@ -2,8 +2,9 @@
 
 import { medusa } from "@lib/config";
 import { Cart } from "@medusajs/medusa";
+import ProductPreview from "@modules/product/elements/preview";
 import { useEffect, useMemo, useState } from "react";
-import ProductPreview from "./ProductPreview";
+
 
 // needs to be client, if not, has no access to cart id stores
 
@@ -29,12 +30,14 @@ export default function CartTemplate() {
       Cart
       {/* HAS NO HANDLE? */}
       {cart?.items.map((product) => (
+        <>
         <ProductPreview
-          id={product.id}
+          id={product.variant.product_id}
           title={product.title}
-          handle={"hoodie"}
           thumbnail={product.thumbnail}
         />
+
+        </>
       ))}
     </div>
   );

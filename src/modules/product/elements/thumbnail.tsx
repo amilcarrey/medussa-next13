@@ -1,5 +1,4 @@
 import { Image as MedusaImage } from "@medusajs/medusa"
-
 import clsx from "clsx"
 import Image from "next/image"
 import React from "react"
@@ -19,14 +18,14 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
 
   return (
     <div
-      className={clsx("relative aspect-[29/34]", {
+      className={clsx("relative aspect-[29/34] -z-10 ", {
         "w-[180px]": size === "small",
         "w-[290px]": size === "medium",
         "w-[440px]": size === "large",
         "w-full": size === "full",
       })}
     >
-      <Image src={initialImage!} alt="Sape" width={500} height={500} />
+      <Image src={initialImage!} alt="Sape" width={1000} height={1000}  />
     </div>
   )
 }

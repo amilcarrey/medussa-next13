@@ -1,20 +1,21 @@
 import clsx from "clsx"
 import Link from "next/link"
 import { ProductPreviewType } from "types/global"
-import Thumbnail from "./Thumbnail"
+import Thumbnail from "./thumbnail"
+
 
 
 const ProductPreview = ({
   title,
-  handle,
+  id,
   thumbnail,
   price,
 }: ProductPreviewType) => {
   return (
-    <Link href={`/products/${handle}`}>
+    <Link href={`/products/${id}`}>
 
         <div>
-          <Thumbnail thumbnail={thumbnail} size="full" />
+          <Thumbnail thumbnail={thumbnail}  />
           <div className="text-base-regular mt-2">
             <span>{title}</span>
             <div className="flex items-center gap-x-2 mt-1">
